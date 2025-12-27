@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<style>
+    /* Custom CSS for the Hero Section */
+    .hero-banner {
+        /* Fallback color if image is missing */
+        background-color: #212529; 
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("{% static 'images/hero-bg.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+    .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.175) !important;
+    }
+    .icon-box {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background: #f8f9fa;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+    }
+</style>
+
+<section class="hero-banner">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-lg-10">
+                <h1 class="display-3 fw-bold text-white mb-4">Empowering Rural Assam Through Digital Service</h1>
+                <p class="lead text-white-50 mb-5">CSC Society Assam is dedicated to bridging the digital gap and supporting our community through technology and compassion.</p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a href="{% url 'login_donor' %}" class="btn btn-warning btn-lg px-5 fw-bold">Donate Now</a>
+                    <a href="#about" class="btn btn-outline-light btn-lg px-5">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="mission" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase fw-bold">Our Purpose</h2>
+            <h3 class="section-subheading text-muted">Empowering the grassroots through digital and social service.</h3>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm p-4 hover-lift">
+                    <div class="card-body">
+                        <div class="icon-box mb-3 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-rocket fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="my-3">Our Mission</h4>
+                        <p class="text-muted">To bridge the digital divide in rural Assam by providing accessible e-governance, financial services, and social support through our dedicated network of CSC VLEs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm p-4 hover-lift">
+                    <div class="card-body">
+                        <div class="icon-box mb-3 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-eye fa-2x text-success"></i>
+                        </div>
+                        <h4 class="my-3">Our Vision</h4>
+                        <p class="text-muted">To create a self-reliant digital society in Assam where every citizen has equal access to government opportunities and essential services at their doorstep.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section" id="about">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase fw-bold">About Us</h2>
+            <h3 class="section-subheading text-muted">Working towards a better tomorrow.</h3>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 text-center shadow-sm p-4 h-100 hover-lift">
+                    <img class="mx-auto rounded-circle shadow mb-3" src="{% static 'images/donation.jpg' %}" alt="Donation" width="150" height="150" style="object-fit: cover;" onerror="this.src='https://via.placeholder.com/150'"/>
+                    <h4>Product Donation</h4>
+                    <p class="text-muted">Nowadays companies and individuals are expected to do more for the community. We help facilitate the donation of equipment, digital infrastructure, food, and clothing.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 text-center shadow-sm p-4 h-100 hover-lift">
+                    <img class="mx-auto rounded-circle shadow mb-3" src="{% static 'images/volunteer.png' %}" alt="Volunteer" width="150" height="150" style="object-fit: cover;" onerror="this.src='https://via.placeholder.com/150'"/>
+                    <h4>Volunteering</h4>
+                    <p class="text-muted">Volunteers bring expertise—marketing, computer skills, or just a helping hand. Join us to see the direct benefits of your work as a mentor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="dovo" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase fw-bold">Take Action</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card text-center shadow border-0 overflow-hidden h-100">
+                    <img src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Donate">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Best Way to Help Others</h5>
+                        <p class="card-text text-muted mb-4">Join us and become a part of this noble cause.</p> 
+                        <a href="{% url 'login_donor' %}" class="btn btn-primary btn-lg mt-auto">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card text-center shadow border-0 overflow-hidden h-100">
+                    <img src="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Volunteer">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Become a Volunteer Today</h5>
+                        <p class="card-text text-muted mb-4">One of the greatest gifts you can give is your time.</p> 
+                        <a href="{% url 'login_volunteer' %}" class="btn btn-danger btn-lg mt-auto">Become Volunteer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase text-white fw-bold">Contact Us</h2>
+            <h3 class="section-subheading text-muted">CSC Society Assam</h3>
+        </div>
+        <div class="row bg-light rounded text-dark p-4 shadow-lg mx-1 g-4">
+            <div class="col-md-3">
+                <div class="fw-bold text-primary mb-2"><i class="fas fa-phone-alt me-2"></i>Contact</div>
+                <div>+91 9101003705</div>
+            </div>
+            <div class="col-md-3">
+                <div class="fw-bold text-primary mb-2"><i class="fas fa-envelope me-2"></i>Send Mail</div>
+                <div style="word-wrap: break-word; font-size: 0.9rem;">anamul0000pori@gmail.com</div>
+            </div>
+            <div class="col-md-3">
+                <div class="fw-bold text-primary mb-2"><i class="fas fa-map-marker-alt me-2"></i>Office Address</div>
+                <div>Gossaigaon, Kokrajhar, Assam</div>
+            </div>
+            <div class="col-md-3">
+                <div class="fw-bold text-primary mb-2"><i class="fas fa-clock me-2"></i>Office Hours</div>
+                <div>9:00 AM to 7:00 PM</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

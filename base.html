@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC Society Assam | Donation & Volunteer System</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/helping-hand.png' %}" />
+    
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;100;300;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        /* Custom styles for the Top Header */
+        .top-bar {
+            background-color: #004a99; /* Professional Blue */
+            color: white;
+            font-size: 0.85rem;
+            padding: 5px 0;
+        }
+        .top-bar a { color: white; text-decoration: none; margin-left: 10px; }
+        .top-bar a:hover { color: #ffc107; }
+        .navbar { top: 34px !important; } /* Push main nav down to make room for top bar */
+        @media (max-width: 991px) { .navbar { top: 0 !important; } .top-bar { display: none; } }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <div class="top-bar fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="contact-info d-none d-md-block">
+                <span><i class="fas fa-envelope"></i> info@cscsocietyassam.com</span>
+                <span class="ms-3"><i class="fas fa-phone"></i> +91 7086487028</span>
+            </div>
+            <div class="notification-scroll text-center">
+                <marquee behavior="scroll" direction="left" scrollamount="5">Welcome to CSC Society Assam - Join us as a Volunteer today!</marquee>
+            </div>
+            <div class="social-translate d-flex align-items-center">
+                <div id="google_translate_element" class="me-2"></div> <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'images/logo1.png' %}" width="30" height="30" alt="Logo" /> CSC Society
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="missionDropdown" data-bs-toggle="dropdown">Mission</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#mission">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="#vision">Our Vision</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#activity">Activity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="memberDropdown" data-bs-toggle="dropdown">Membership</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'login_volunteer' %}">Join as Member</a></li>
+                            <li><a class="dropdown-item" href="#member-list">Member List</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning text-dark ms-lg-2 px-3" href="#dovo">Donate</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Login
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="{% url 'login_donor' %}">Donor</a></li>
+                          <li><a class="dropdown-item" href="{% url 'login_volunteer' %}">Volunteer</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'login_admin' %}">Admin</a></li>
+                        </ul>
+                      </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 100px;">
+        {% block main %}
+        {% endblock main %}
+    </div>
+
+    {% include 'base-footer.html' %}
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
